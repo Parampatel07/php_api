@@ -1,0 +1,62 @@
+Certainly! Based on the provided description, here's a basic data dictionary outlining the key entities and attributes in the event management application:
+1. *Event:*
+   - Attributes:
+      - EventID (Unique identifier for each event)
+      - Name (Name of the event)
+      - Type (Type of event - wedding, commercial, birthday, etc.)
+      - StartDate (Starting date of the event)
+      - EndDate (Ending date of the event)
+      - Venue (Location where the event will take place)
+      - Budget (Budget allocated for the event)
+
+2. *Theme:*
+   - Attributes:
+      - ThemeID (Unique identifier for each theme)
+      - Name (Name of the theme)
+      - Description (Description of the theme)
+      - minBudget 
+      - maxBudget
+      - photo
+	  
+3	*Theme_album:*
+   - Attributes:
+      - id (Unique identifier for each theme)
+	   - themeid
+      - photo
+	   - description
+
+3. *Customer:*
+   - Attributes:
+      - id (Unique identifier for each customer)
+      - email
+	  - mobile
+	  - password
+
+4. *Orders:*
+   - Attributes:
+      - OrderID (Unique identifier for each order)
+      - EventID (Foreign key linking to the Event table)
+      - ThemeID (Foreign key linking to the Theme table)
+      - CustomerID (Foreign key linking to the Customer table)
+      - OrderStatus (Status of the order - pending, confirmed, etc.)
+
+5. *CateringService:*
+   - Attributes:
+      - CateringServiceID (Unique identifier for each catering service)
+      - Name (Name of the catering service)
+      - Description (Description of the catering service)
+      - Price (Cost of the catering service)
+      - photo 
+	  
+6. *RatingReview*
+	- Attributes
+		id 
+		eventid 
+		rating
+		reviews
+
+7. Admin
+      id
+      Name
+      email
+      password

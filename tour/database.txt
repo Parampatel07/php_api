@@ -1,0 +1,70 @@
+
+
+1. *tour_user:*
+   
+   | Column Name   | Data Type | Description                          |
+   |---------------|-----------|--------------------------------------|
+   | UserID        | INT       | Unique identifier for each user      |
+   | UserType      | VARCHAR   | Type of user (Tour Operator or Customer) |
+   | Username      | VARCHAR   | User's username                      |
+   | Password      | VARCHAR   | User's password                      |
+   | Email         | VARCHAR   | User's email address                 |
+   | ...           | ...       | Other relevant user information      |
+
+2. *tour_tour:*
+
+   | Column Name       | Data Type | Description                                   |
+   |-------------------|-----------|-----------------------------------------------|
+   | TourID            | INT       | Unique identifier for each tour               |
+   | OperatorID        | INT       | Foreign key referencing UserID of Tour Operator |
+   | Destinations      | VARCHAR   | Destinations covered in the tour              |
+   | Facilities        | TEXT      | Facilities provided during the tour          |
+   | TicketPriceAdult  | DECIMAL   | Ticket price for adults                      |
+   | TicketPriceChild  | DECIMAL   | Ticket price for children                    |
+   | TermsAndConditions| TEXT      | Terms and conditions for the tour             |
+
+3. *tour_incomeExpense:*
+
+   | Column Name      | Data Type | Description                                           |
+   |------------------|-----------|-------------------------------------------------------|
+   | IncomeExpenseID  | INT       | Unique identifier for each income and expense entry   |
+   | TourID           | INT       | Foreign key referencing TourID from the Tour Table    |
+   | Income           | DECIMAL   | Income related to the specific tour                   |
+   | Expense          | DECIMAL   | Expense related to the specific tour                  |
+   | ...              | ...       | Other relevant fields for income and expense tracking  |
+
+4. *tour_booking:*
+
+   | Column Name   | Data Type | Description                                   |
+   |---------------|-----------|-----------------------------------------------|
+   | BookingID     | INT       | Unique identifier for each booking             |
+   | TourID        | INT       | Foreign key referencing TourID from the Tour Table |
+   | CustomerID    | INT       | Foreign key referencing UserID of Customer    |
+   | BookingDate   | DATE      | Date when the booking was made                 |
+
+5. *tour_message:*
+
+   | Column Name | Data Type | Description                                   |
+   |-------------|-----------|-----------------------------------------------|
+   | MessageID   | INT       | Unique identifier for each message            |
+   | TourID      | INT       | Foreign key referencing TourID from the Tour Table |
+   | SenderID    | INT       | Foreign key referencing UserID of the sender  |
+   | MessageText | TEXT      | Content of the message                        |
+   | Timestamp   | DATETIME  | Timestamp of when the message was sent        |
+
+6. *tour_alaram:*
+
+   | Column Name | Data Type | Description                                   |
+   |-------------|-----------|-----------------------------------------------|
+   | AlarmID     | INT       | Unique identifier for each alarm              |
+   | TourID      | INT       | Foreign key referencing TourID from the Tour Table |
+   | AlarmTime   | DATETIME  | Date and time when the alarm is set to ring   |
+
+7. *tour_photograph:*
+
+   | Column Name   | Data Type | Description                                   |
+   |---------------|-----------|-----------------------------------------------|
+   | PhotoID       | INT       | Unique identifier for each photograph         |
+   | TourID        | INT       | Foreign key referencing TourID from the Tour Table |
+   | PhotoPath     | VARCHAR   | File path or URL of the shared photograph     |
+   | Caption       | TEXT      | Caption or description of the photograph      |
